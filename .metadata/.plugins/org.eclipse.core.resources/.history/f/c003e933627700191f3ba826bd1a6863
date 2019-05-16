@@ -1,0 +1,18 @@
+package com.example.demo.service;
+import java.util.Hashtable;
+
+import org.springframework.stereotype.Service;
+
+import com.example.model.*;
+
+@Service
+public class WorkService {
+	Hashtable<Integer,Work> work = new Hashtable<String,Work>();
+	public Work getWork(String id) {
+		if (work.containsKey(id)) {
+			return work.get(id);
+		}
+		else
+			return null;
+	}
+}

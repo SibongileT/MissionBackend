@@ -1,0 +1,73 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import model.Biography;
+import model.Powerstats;
+
+@Service()
+public class PowerstatsService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	List<Powerstats> powerstats= new ArrayList<Powerstats>();
+	public PowerstatsService() {
+		Powerstats power1 = new Powerstats();
+		power1.setResponse("Success");
+		power1.setId(70);
+		power1.setName("Batman");
+		power1.setIntelligence(100);
+		power1.setStrength(26);
+		power1.setSpeed(27);
+		power1.setDurability(50);
+		power1.setPower(47);
+		power1.setCombat(100);
+		powerstats.add(power1);
+		
+		Powerstats power2 = new Powerstats();
+		power2.setResponse("Success");
+		power2.setId(90);
+		power2.setName("BirdMan-II");
+		power2.setIntelligence(-1);
+		power2.setStrength(-1);
+		power2.setSpeed(-1);
+		power2.setDurability(-1);
+		power2.setPower(-1);
+		power2.setCombat(-1);
+		powerstats.add(power2);
+		
+		Powerstats power3 = new Powerstats();
+		power3.setResponse("Success");
+		power3.setId(1);
+		power3.setName("A-Bomb");
+		power3.setIntelligence(38);
+		power3.setStrength(100);
+		power3.setSpeed(17);
+		power3.setDurability(80);
+		power3.setPower(24);
+		power3.setCombat(64);
+		powerstats.add(power3);
+	}
+
+	public Powerstats getPowerById(Integer id) {
+		for (Powerstats p: powerstats) {
+			if (p.getId() == id) {
+				return p;
+			}
+		}
+		return null;
+	}
+//	public Biography getBioByAlignment(String alignment) {
+//		if (biography.contains(biography))
+//	}
+	public List<Powerstats> getAll(){
+		return powerstats;
+	}
+}

@@ -1,0 +1,40 @@
+package com.controller;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.service.BiographyService;
+
+
+import model.Biography;
+
+@RestController()
+@RequestMapping("/biography")
+public class BiographyController {
+	
+
+	@Autowired
+	BiographyService bs;
+	
+	@RequestMapping("/all", method = )
+	public List<Biography> getAll(){
+		return bs.getAll();
+	}
+	
+	@RequestMapping("/{alignment}")
+	public List<Biography> getByAlignment(@PathVariable String alignment){
+		return bs.getBioByAlignment(alignment);
+	}
+	
+	
+	@RequestMapping("/{id}")
+	public Biography getBioById(@PathVariable Integer id) {
+		return bs.getBioById(id);
+	}
+
+}

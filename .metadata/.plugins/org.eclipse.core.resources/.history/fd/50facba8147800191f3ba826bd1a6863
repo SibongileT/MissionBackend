@@ -1,0 +1,44 @@
+package com.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.service.PowerstatsService;
+
+
+import model.Powerstats;
+
+@RestController
+@RequestMapping("/powerstats")
+public class PowerstatsController {
+	
+	@Autowired
+	PowerstatsService ps;
+	
+	@RequestMapping("/{id}")
+	public String getBioById(@PathVariable Integer id) {
+		final String uri = "https://superheroapi.com/api/1901642809941714/"+id+"/powerstats";
+	     
+	    RestTemplate restTemplate = new RestTemplate();
+	    String result = restTemplate.getForObject(uri, String.class);
+	    
+	    return result;
+	}
+	
+//	@RequestMapping("/all")
+//	public List<Powerstats> getAll(){
+//		return ps.getAll();
+//	}
+//
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public Powerstats getPowerById(@PathVariable Integer id) {
+//		return ps.getPowerById(id);
+//	}
+}

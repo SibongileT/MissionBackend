@@ -1,0 +1,25 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Biography;
+
+public class BiographyService {
+	
+	private List<Biography> biography = new ArrayList<Biography>();
+	public BiographyService() {
+		Biography bio1 = new Biography()
+	}
+	
+	public List<Biography> getBioByAlignment(String alignment) {
+		List<Biography> alignments = new ArrayList<Biography>();
+		for (Biography b: biography) {
+			if(b.getAlignment() == alignment) {
+				alignments.add(b);
+			}
+		}
+		return alignments;
+	}
+
+}

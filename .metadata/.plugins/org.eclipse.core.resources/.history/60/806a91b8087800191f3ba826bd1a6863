@@ -1,0 +1,31 @@
+package com.controller;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.service.PowerstatsService;
+
+
+import model.Powerstats;
+
+@RestController
+@RequestMapping("/powerstats")
+public class PowerstatsController {
+	
+	@Autowired
+	PowerstatsService ps;
+	
+	@RequestMapping("/all")
+	public List<Powerstats> getAll(){
+		return ps.getAll();
+	}
+
+	@RequestMapping("/{id}")
+	public Powerstats getPowerById(Integer id) {
+		return ps.getPowerById(id);
+	}
+}

@@ -1,0 +1,18 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.CharacterModel;
+
+public class CharacterService {
+	
+	private List<CharacterModel> character = new ArrayList<CharacterModel>();
+	
+	CharacterModel char1 = new CharacterModel();
+	
+	
+	
+	
+
+}

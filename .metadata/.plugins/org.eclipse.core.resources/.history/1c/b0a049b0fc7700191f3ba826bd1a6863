@@ -1,0 +1,72 @@
+package com.service;
+
+import java.util.Hashtable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import model.Biography;
+
+@Service()
+public class PowerstatsService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	Hashtable<Integer,Biography> biography= new Hashtable<Integer,Biography>();
+	public PowerstatsService() {
+		Biography bio1 = new Biography();
+		bio1.setResponse("Success");
+		bio1.setId(70);
+		bio1.setName("Batman");
+		bio1.setFullName("Bruce Wayne");
+		bio1.setAlterEgo("No alter ego found");
+		bio1.setAliases(null);
+		bio1.setPlaceOfBirth("Crest Hill, Bristol Township; Gotham County");
+		bio1.setFirstApperance("Detective Comics #27");
+		bio1.setPublisher("DC Comics");
+		bio1.setAlignment("Good");
+		biography.put(70, bio1);
+		
+		Biography bio2 = new Biography();
+		bio2.setResponse("Success");
+		bio2.setId(90);
+		bio2.setName("BirdMan-II");
+		bio2.setFullName("Achille DiBacco");
+		bio2.setAlterEgo("No alter ego found");
+		bio2.setAliases(null);
+		bio2.setPlaceOfBirth("The Bar with No Name, Medina County, Ohio");
+		bio2.setFirstApperance("Daredevil #157 (March, 1979)");
+		bio2.setAlignment("Bad");
+		biography.put(90, bio2);
+		
+		Biography bio3 = new Biography();
+		bio3.setResponse("Sucess");
+		bio3.setId(50);
+		bio3.setName("Atom");
+		bio3.setFullName("Albert Pratt");
+		bio3.setAlterEgo("No alter ego found");
+		bio3.setAliases(null);
+		bio3.setPlaceOfBirth("-");
+		bio3.setFirstApperance("All American Comics #19");
+		bio3.setPublisher("DC Comics");
+		bio3.setAlignment("Good");
+		biography.put(70, bio1);
+		
+	}
+
+	public Biography getBioById(Integer id) {
+		if (biography.containsKey(id)) {
+			return biography.get(id);
+		}
+		else
+			return null;
+	}
+//	public Biography getBioByAlignment(String alignment) {
+//		if (biography.contains(biography))
+//	}
+	public Hashtable<Integer,Biography> getAll(){
+		return biography;
+	}
+}

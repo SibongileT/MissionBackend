@@ -1,0 +1,72 @@
+package com.service;
+
+import java.util.Hashtable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import model.Biography;
+import model.Powerstats;
+
+@Service()
+public class PowerstatsService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	Hashtable<Integer,Powerstats> powerstats= new Hashtable<Integer,Powerstats>();
+	public PowerstatsService() {
+		Powerstats power1 = new Powerstats();
+		power1.setResponse("Success");
+		power1.setId(70);
+		power1.setName("Batman");
+		power1.setIntelligence(100);
+		power1.setStrength(26);
+		power1.setSpeed(27);
+		power1.setDurability(50);
+		power1.setPower(47);
+		power1.setCombat(100);
+		powerstats.put(70, bio1);
+		
+		Biography bio2 = new Biography();
+		bio2.setResponse("Success");
+		bio2.setId(90);
+		bio2.setName("BirdMan-II");
+		bio2.setFullName("Achille DiBacco");
+		bio2.setAlterEgo("No alter ego found");
+		bio2.setAliases(null);
+		bio2.setPlaceOfBirth("The Bar with No Name, Medina County, Ohio");
+		bio2.setFirstApperance("Daredevil #157 (March, 1979)");
+		bio2.setAlignment("Bad");
+		biography.put(90, bio2);
+		
+		Biography bio3 = new Biography();
+		bio3.setResponse("Sucess");
+		bio3.setId(50);
+		bio3.setName("Atom");
+		bio3.setFullName("Albert Pratt");
+		bio3.setAlterEgo("No alter ego found");
+		bio3.setAliases(null);
+		bio3.setPlaceOfBirth("-");
+		bio3.setFirstApperance("All American Comics #19");
+		bio3.setPublisher("DC Comics");
+		bio3.setAlignment("Good");
+		biography.put(70, bio1);
+		
+	}
+
+	public Biography getBioById(Integer id) {
+		if (biography.containsKey(id)) {
+			return biography.get(id);
+		}
+		else
+			return null;
+	}
+//	public Biography getBioByAlignment(String alignment) {
+//		if (biography.contains(biography))
+//	}
+	public Hashtable<Integer,Biography> getAll(){
+		return biography;
+	}
+}

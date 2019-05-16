@@ -1,0 +1,94 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import model.Biography;
+
+
+
+@Service()
+public class BiographyService {
+	
+	@Autowired
+	public RestTemplate restTemplate;
+	
+//	final String ROOT_URI = "https://superheroapi.com/api/1901642809941714";
+//	
+//	public List<Biography> getBiography(Integer id){
+//		ResponseEntity<Biography[]> response = 
+//	restTemplate.getForEntity(ROOT_URI + "/" + id + "/biography", Biography[].class);
+//		return Arrays.asList(response.getBody());
+//		
+//	}
+	private List<Biography> biography= new ArrayList<Biography>();
+	public BiographyService() {
+		Biography bio1 = new Biography();
+		bio1.setResponse("Success");
+		bio1.setId(70);
+		bio1.setName("Batman");
+		bio1.setFullName("Bruce Wayne");
+		bio1.setAlterEgo("No alter ego found");
+		bio1.setAliases(null);
+		bio1.setPlaceOfBirth("Crest Hill, Bristol Township; Gotham County");
+		bio1.setFirstApperance("Detective Comics #27");
+		bio1.setPublisher("DC Comics");
+		bio1.setAlignment("Good");
+		biography.add(bio1);
+		
+		Biography bio2 = new Biography();
+		bio2.setResponse("Success");
+		bio2.setId(90);
+		bio2.setName("BirdMan-II");
+		bio2.setFullName("Achille DiBacco");
+		bio2.setAlterEgo("No alter ego found");
+		bio2.setAliases(null);
+		bio2.setPlaceOfBirth("The Bar with No Name, Medina County, Ohio");
+		bio2.setFirstApperance("Daredevil #157 (March, 1979)");
+		bio2.setAlignment("Bad");
+		biography.add(bio2);
+		
+		Biography bio3 = new Biography();
+		bio3.setResponse("Sucess");
+		bio3.setId(50);
+		bio3.setName("Atom");
+		bio3.setFullName("Albert Pratt");
+		bio3.setAlterEgo("No alter ego found");
+		bio3.setAliases(null);
+		bio3.setPlaceOfBirth("-");
+		bio3.setFirstApperance("All American Comics #19");
+		bio3.setPublisher("DC Comics");
+		bio3.setAlignment("Good");
+		biography.add(bio2);
+		
+	}
+
+	public Biography getBioById(Integer id) {
+		for (Biography b: biography) {
+			if (b.getId() == id) {
+				return b;
+			}
+		}
+		return null;	
+	}
+	public List<Biography> getBioByAlignment(String alignment) {
+		List<Biography> alignments = new ArrayList<Biography>();
+		for (Biography b: biography) {
+			if(b.getAlignment() == alignment) {
+				alignments.add(b);
+			}
+		}
+		return alignments;
+	}
+	public List<Biography> getAll(){
+		return biography;
+	}
+
+}

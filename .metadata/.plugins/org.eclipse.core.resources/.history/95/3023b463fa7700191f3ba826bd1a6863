@@ -1,0 +1,52 @@
+package com.service;
+
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import model.Biography;
+
+
+@Service()
+public class BiographyService {
+	
+	@Autowired
+	public RestTemplate restTemplate;
+	
+//	final String ROOT_URI = "https://superheroapi.com/api/1901642809941714";
+//	
+//	public List<Biography> getBiography(Integer id){
+//		ResponseEntity<Biography[]> response = 
+//	restTemplate.getForEntity(ROOT_URI + "/" + id + "/biography", Biography[].class);
+//		return Arrays.asList(response.getBody());
+//		
+//	}
+	Hashtable<Integer,Biography> biography= new Hashtable<Integer,Biography>();
+	public BiographyService() {
+		Biography bio1 = new Biography();
+		bio1.setResponse("Sucess");
+		bio1.setId(70);
+		bio1.setName("Batman");
+		bio1.setFullName("Bruce Wayne");
+		bio1.setAlterEgo("No alter ego found");
+		bio1.setAliases(null);
+		bio1.setPlacesOfBirth("Crest Hill, Bristol Township; Gotham County");
+		work.put(70, work1);
+		
+	}
+
+	public Work getWork(Integer id) {
+		if (work.containsKey(id)) {
+			return work.get(id);
+		}
+		else
+			return null;
+	}
+	
+
+}

@@ -1,0 +1,35 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Biography;
+
+public class BiographyService {
+	
+	private List<Biography> biography = new ArrayList<Biography>();
+	public BiographyService() {
+		Biography bio1 = new Biography();
+		bio1.setResponse("success");
+		bio1.setId(70);
+		bio1.setName("Batman");
+		bio1.setFullName("Bruce Wayne");
+		bio1.setAlterEgo("No alter egos found.");
+		bio1.setPlaceOfBirth("Crest Hill, Bristol Township; Gotham County");
+		bio1.setAlignment("good");
+		bio1.setFirstApperance("Detective Comics #27");
+		bio1.setPublisher("DC Comics");
+		
+	}
+	
+	public List<Biography> getBioByAlignment(String alignment) {
+		List<Biography> alignments = new ArrayList<Biography>();
+		for (Biography b: biography) {
+			if(b.getAlignment() == alignment) {
+				alignments.add(b);
+			}
+		}
+		return alignments;
+	}
+
+}

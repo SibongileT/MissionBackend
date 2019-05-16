@@ -1,0 +1,27 @@
+package com.controller;
+
+import java.util.Hashtable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.service.BiographyService;
+
+
+import model.Biography;
+
+@RestController()
+@RequestMapping("/biography")
+public class BiographyController {
+	
+
+	@Autowired
+	BiographyService bs;
+	
+	@RequestMapping("/all")
+	public Hashtable<Integer,Work> getAll(){
+		return ws.getAll();
+	}
+
+}

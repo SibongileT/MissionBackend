@@ -1,0 +1,32 @@
+package com.service;
+import java.util.Hashtable;
+
+import org.springframework.stereotype.Service;
+
+import model.Work;
+
+@Service
+public class WorkService {
+	Hashtable<Integer,Work> work= new Hashtable<Integer,Work>();
+	
+	public WorkService() {
+		Work work1 = new Work();
+		work1.setResponse("Sucess");
+		work1.setId(70);
+		work1.setName("Batman");
+		work1.setOperation("Businessman");
+		work1.setBase("Batcave, Stately Wayne Manor, Gotham City; Hall of Justice, Justice League Watchtower");
+		work.put(70, work1);
+	}
+
+	public Work getWork(Integer id) {
+		if (work.containsKey(id)) {
+			return work.get(id);
+		}
+		else
+			return null;
+	}
+	public Hashtable<Integer,Work> getAll(){
+		return work;
+	}
+}

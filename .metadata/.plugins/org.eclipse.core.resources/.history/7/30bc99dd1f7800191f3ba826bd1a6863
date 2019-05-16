@@ -1,0 +1,2 @@
+spring.security.oauth2.client.registration.google.client-id=bonji.toure@gmail.com
+spring.security.oauth2.client.registration.google.client-secret=1431Bedford
